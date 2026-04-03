@@ -1,4 +1,5 @@
-"""ANIMA HACHIMAN — Robust Physical-World Adversarial Camouflage via 3DGS"""
-from .version import __version__
+"""Compatibility wrapper for the old scaffold namespace."""
+
+from anima_def_rpga import __version__
 
 __all__ = ["__version__"]

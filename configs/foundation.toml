@@ -30,9 +30,6 @@ cobot_xarm6 = false
 [detectors]
 default = "faster-rcnn"
 faster_rcnn_checkpoint = "/Volumes/AIFlowDev/RobotFlowLabs/datasets/models/def_rpga/detectors/faster_rcnn_r50_fpn_1x_coco.pth"
-yolov5_checkpoint = "/Volumes/AIFlowDev/RobotFlowLabs/datasets/models/def_rpga/detectors/yolov5.pt"
-mask_rcnn_checkpoint = "/Volumes/AIFlowDev/RobotFlowLabs/datasets/models/def_rpga/detectors/mask_rcnn_r50_fpn_1x_coco.pth"
-deformable_detr_checkpoint = "/Volumes/AIFlowDev/RobotFlowLabs/datasets/models/def_rpga/detectors/deformable_detr_r50.pth"
 sam_checkpoint = "/Volumes/AIFlowDev/RobotFlowLabs/datasets/models/def_rpga/sam/sam_vit_h.pth"
 
 [serve]

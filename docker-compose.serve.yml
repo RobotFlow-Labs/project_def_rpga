@@ -1,0 +1,10 @@
+services:
+  def-rpga:
+    build:
+      context: .
+      dockerfile: Dockerfile.serve
+    ports:
+      - "8407:8407"
+    volumes:
+      - ./:/app
+    command: python -m anima_def_rpga.serve

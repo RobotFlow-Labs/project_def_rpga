@@ -1,0 +1,18 @@
+FROM python:3.11-slim
+
+WORKDIR /app
+
+COPY pyproject.toml README.md ./
+COPY src ./src
+COPY configs ./configs
+
+RUN pip install uv && \
+    uv venv /opt/venv --python python3.11 && \
+    /opt/venv/bin/python -m pip install --upgrade pip && \
+    uv sync --python /opt/venv/bin/python --extra serve
+
+ENV PATH="/opt/venv/bin:${PATH}"
+
+EXPOSE 8407
+
+CMD ["python", "-m", "anima_def_rpga.serve"]

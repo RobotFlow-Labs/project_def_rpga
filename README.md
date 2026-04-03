@@ -1,28 +1,30 @@
-# DEF-RPGA — ANIMA Module
+# DEF-RPGA
 
-> **PGA: Robust Adversarial Camouflage via 3DGS**
-> Paper: [arXiv:2503.16190](https://arxiv.org/abs/2503.16190)
+Paper-backed ANIMA module for physical adversarial camouflage generation using 3D Gaussian Splatting.
 
-Part of the [ANIMA Intelligence Compiler Suite](https://github.com/RobotFlow-Labs) by AIFLOW LABS LIMITED.
+> Paper: [arXiv:2507.01367](https://arxiv.org/abs/2507.01367)
+> Upstream code reference: [TRLou/R-PGA](https://github.com/TRLou/R-PGA)
 
-## Domain
-Defense
+## Environment
 
-## Status
-- [ ] Paper read + ASSETS.md created
-- [ ] PRD-01 through PRD-07
-- [ ] Training pipeline
-- [ ] GPU training
-- [ ] Export: pth + safetensors + ONNX + TRT fp16 + TRT fp32
-- [ ] Push to HuggingFace
-- [ ] Docker serving
+- Package manager: `uv`
+- Python: `3.11`
+- Local mac bootstrap:
 
-## Quick Start
 ```bash
-cd project_def_rpga
-uv venv .venv --python python3.11 && uv sync
-uv run pytest tests/ -v
+bash scripts/uv_sync_mac.sh
 ```
 
-## License
-MIT — AIFLOW LABS LIMITED
+- Linux / CUDA bootstrap:
+
+```bash
+bash scripts/uv_sync_cuda.sh
+```
+
+## Main entrypoints
+
+```bash
+uv run def-rpga-check-assets --config configs/foundation.toml
+uv run python -m anima_def_rpga.serve
+uv run pytest
+```

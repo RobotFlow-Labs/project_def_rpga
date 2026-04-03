@@ -1,0 +1,27 @@
+[attack]
+steps = 20000
+batch_size = 4
+learning_rate = 0.01
+sigma_epsilon = 0.031372549
+sigma_step_size = 0.007843137
+lambda_consistency = 1.0
+lambda_eot = 1.0
+lambda_nps = 1.0
+lambda_color = 0.25
+optimize_sh0_only = true
+use_minmax_background = true
+checkpoint_every = 5
+output_dir = "./outputs/attack"
+printable_palette = [
+  [0.0, 0.0, 0.0],
+  [1.0, 1.0, 1.0],
+  [1.0, 0.0, 0.0],
+  [0.0, 1.0, 0.0],
+  [0.0, 0.0, 1.0],
+]
+
+[protocol]
+weathers = ["sunny", "cloudy"]
+distances_m = [5, 10, 15, 20]
+pitch_deg = [20, 30, 40, 50, 60]
+azimuth_step_deg = 10

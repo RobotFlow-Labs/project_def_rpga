@@ -1,0 +1,17 @@
+name: def-rpga
+codename: DEF-RPGA
+domain: defense
+package: anima_def_rpga
+paper:
+  title: 3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation
+  arxiv: "2507.01367"
+  pdf: papers/2507.01367_PGA.pdf
+runtime:
+  python: "3.11"
+  package_manager: uv
+  serve_entrypoint: anima_def_rpga.serve:app
+build:
+  config: configs/default.toml
+  attack_config: configs/attack.toml
+artifacts:
+  outputs_root: outputs/

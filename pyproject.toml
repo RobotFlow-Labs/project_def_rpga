@@ -3,20 +3,68 @@ requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [project]
-name = "anima-hachiman"
+name = "anima-def-rpga"
 version = "0.1.0"
-description = "ANIMA HACHIMAN — Robust Physical-World Adversarial Camouflage via 3DGS"
-requires-python = ">=3.10"
+description = "ANIMA DEF-RPGA — 3D Gaussian Splatting driven physical adversarial camouflage generation"
+readme = "README.md"
+requires-python = ">=3.11,<3.12"
 dependencies = [
-    "torch>=2.0",
-    "numpy",
-    "opencv-python",
+    "numpy>=1.26",
+    "opencv-python>=4.10",
+    "pillow>=10.4",
+    "pydantic>=2.8",
+    "pydantic-settings>=2.3",
+    "pyyaml>=6.0",
+    "rich>=13.9",
+    "torch>=2.6",
 ]
 
 [project.optional-dependencies]
-mlx = ["mlx>=0.10", "mlx-nn"]
-dev = ["pytest", "ruff", "mypy"]
+dev = [
+    "mypy>=1.11",
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "ruff>=0.8",
+]
+serve = [
+    "fastapi>=0.115",
+    "uvicorn>=0.32",
+]
+mac = [
+    "mlx>=0.22; platform_system == 'Darwin'",
+]
+cuda = []
+
+[project.scripts]
+def-rpga-check-assets = "anima_def_rpga.cli.check_assets:main"
+def-rpga-serve = "anima_def_rpga.serve:main"
+
+[tool.hatch.build.targets.wheel]
+packages = [
+    "src/anima_def_rpga",
+    "src/anima_hachiman",
+]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/configs",
+    "/tests",
+    "/scripts",
+    "/README.md",
+    "/PRD.md",
+    "/NEXT_STEPS.md",
+    "/ASSETS.md",
+    "/PIPELINE_MAP.md",
+    "/anima_module.yaml",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]

@@ -1,41 +1,17 @@
 # DEF-RPGA
 
 ## Paper
-**PGA: Robust Adversarial Camouflage via 3DGS**
-arXiv: https://arxiv.org/abs/2503.16190
+**3D Gaussian Splatting Driven Multi-View Robust Physical Adversarial Camouflage Generation**
+arXiv: https://arxiv.org/abs/2507.01367
 
 ## Module Identity
 - Codename: DEF-RPGA
 - Domain: Defense
 - Part of ANIMA Intelligence Compiler Suite
 
-## Structure
-```
-project_def_rpga/
-├── pyproject.toml
-├── configs/
-├── src/anima_def_rpga/
-├── tests/
-├── scripts/
-├── papers/          # Paper PDF
-├── AGENTS.md        # This file
-├── NEXT_STEPS.md
-├── ASSETS.md
-└── PRD.md
-```
-
-## Commands
-```bash
-uv sync
-uv run pytest
-uv run ruff check src/ tests/
-uv run ruff format src/ tests/
-```
-
 ## Conventions
-- Package manager: uv (never pip)
-- Build backend: hatchling
-- Python: >=3.10
-- Config: TOML + Pydantic BaseSettings
-- Lint: ruff
-- Git commit prefix: [DEF-RPGA]
+- Package manager: uv
+- Python: 3.11
+- Canonical package: `anima_def_rpga`
+- Current local machine: macOS
+- Future training target: CUDA Linux server
